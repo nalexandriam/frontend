@@ -18,26 +18,29 @@
     <ion-button  block [disabled]="FormCaracteristica.invalid" (click)="cadastrarCaracteristica(FormCaracteristica)">Submit</ion-button>
   </form>
 
-  <form [formGroup]="FormEmpresa" *ngIf="caracteristicaOK" novalidate>
+  <form [formGroup]="FormEmpresa"  novalidate>
     <ion-list>
       <ion-item>
-        <ion-label>Logo</ion-label>
-        <ion-input type="text" formControlName="logo" ></ion-input>
+        <ion-input type="text" formControlName="logo" hidden ></ion-input>
+        
+        <label for="attach">Logo:</label>
+        <!--<ion-input type="file" accept="image/*" formControlName="logo" ></ion-input>-->
+        <input style="border-radius: 0px solid white;" type="file" placeholder="Attachment" id='attach' (change)="Image($event)">
       </ion-item>
       <ion-item>
-        <ion-label>Descricao</ion-label>
+        <ion-label>Descricao:</ion-label>
         <ion-input type="text" formControlName="descricao" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Endereço</ion-label>
+        <ion-label>Endereço:</ion-label>
         <ion-input type="password" formControlName="mapa" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>login</ion-label>
+        <ion-label>login:</ion-label>
         <ion-input type="text" formControlName="login" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>senha</ion-label>
+        <ion-label>senha:</ion-label>
         <ion-input type="text" formControlName="senha" ></ion-input>
       </ion-item>
     </ion-list>
