@@ -31,6 +31,10 @@ getCaracteristicas(){
   return this.http.get(`${this.api}caracteristicas.json`,{'headers':this.headers})
 }
 
+getEmpresa(){
+  return this.http.get(this.api+'empresas/'+sessionStorage.getItem('id'),{'headers': this.headers})
+}
+
 cadastroEmpresa(body:Object){
   return this.http.post(`${this.api}empresas.json`,body,{'headers':this.headers});
 }

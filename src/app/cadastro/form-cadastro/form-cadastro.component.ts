@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {FormGroup, FormBuilder, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../api/api.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class FormCadastroComponent implements OnInit {
   base64ok:boolean = false;
   ImageBase64: any;
 
-  constructor(private apiService: ApiService, private fb: FormBuilder) {
+  constructor(private apiService: ApiService, private fb: FormBuilder, private router: Router) {
     this.createEmpresaForm();
     this.createCaracteristicaForm();
    }
@@ -57,6 +58,8 @@ export class FormCadastroComponent implements OnInit {
     this.bodyEmpresa['empresa']['caracteristica_id'] = this.id_caracteristica;
     this.apiService.cadastroEmpresa(this.bodyEmpresa).subscribe(data =>{
       console.log('data='+data);
+      this.caracteristicaOK = false;
+      this.router.navigate(['/login']);
     });
   }
 

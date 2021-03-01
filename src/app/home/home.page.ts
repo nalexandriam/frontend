@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormBuilder, AbstractControl} from '@angular/forms';
 import { ApiService } from '../api/api.service';
+import {Router} from '@angular/router'
 
 
 
@@ -16,14 +17,14 @@ export class HomePage {
   loginForm: FormGroup;
   pinVisibleControl: AbstractControl;
 
-  constructor(private fb: FormBuilder, private apiService:ApiService) {
+  constructor(private fb: FormBuilder, private apiService:ApiService, private router: Router) {
     this.createForm();
   }
 
   createForm() {
     this.loginForm = this.fb.group({
-      login: 'login',
-      senha: 'senha'
+      login: '',
+      senha: ''
     });
   }
 
@@ -41,26 +42,33 @@ login(loginForm:FormGroup){
     }
      
      this.loadEmpresa(dataTemp, loginForm);
+  },
+  error =>{
+    console.log("Ocorreu um problema durante o login.. verifique se digitou corretamente.");
   });
 }
 
 loadEmpresa(dataTemp, loginForm){ 
-  console.log(dataTemp[0]['login']);
-  console.log(loginForm.value['login'] === dataTemp[0]['login']);
+  //console.log(dataTemp[0]['login']);
+ // console.log(loginForm.value['login'] === dataTemp[0]['login']);
   var len = dataTemp.length;
   for(let i=0;i<len;i++){console.log('*');
    if (dataTemp[i]['login'] == loginForm.value['login'] && dataTemp[i]['senha'] == loginForm.value['senha']){
-    this.empresa['logo'] = dataTemp[i]['logo'];
+     sessionStorage.setItem('id',dataTemp[i]['id']);
+     this.router.navigate(['/empresa']);
+    /*this.empresa['logo'] = dataTemp[i]['logo'];
     this.empresa['descricao'] = dataTemp[i]['descricao'];
     this.empresa['mapa'] = dataTemp[i]['mapa'];
     this.empresa['login'] = dataTemp[i]['login'];
-    this.empresa['senha'] = dataTemp[i]['senha'];
+    this.empresa['senha'] = dataTemp[i]['senha'];*/
    
   }
-  console.log(this.empresa['logo']);
-  this.exibirDados = true;
 }
   
+}
+
+cadastro(){
+  this.router.navigate(['cadastro/']);
 }
 
 }

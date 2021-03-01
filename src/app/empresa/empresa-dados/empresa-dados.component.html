@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+  <ion-title style="color:rgba(238, 235, 255, 0.952)">Sua Empresa</ion-title>
+</ion-navbar>
+
+</ion-header>
+<ion-content padding >
+<ion-list style="text-align:center">
+  <img [src]="empresa.logo" alt='logo'  width="150" height="200">
+  <ion-item>
+    <ion-label style="text-align:center" ><span style='color:rgb(117, 117, 219); font-size: larger;'>Descrição:</span> {{empresa.descricao}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label style="text-align:center"><span style='color:rgb(109, 109, 206); font-size: larger;'>Endereço:</span> {{empresa.mapa}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label style="text-align:center"><span style='color:rgb(114, 114, 236); font-size: larger;'>Login:</span> {{empresa.login}}</ion-label>
+  </ion-item>
+</ion-list>
+<ion-button color='red' fill='outline' (click)='sair()'>Sair</ion-button>
+</ion-content>

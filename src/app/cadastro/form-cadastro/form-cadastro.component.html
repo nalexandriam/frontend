@@ -18,7 +18,7 @@
     <ion-button  block [disabled]="FormCaracteristica.invalid" (click)="cadastrarCaracteristica(FormCaracteristica)">Submit</ion-button>
   </form>
 
-  <form [formGroup]="FormEmpresa"  novalidate>
+  <form [formGroup]="FormEmpresa" *ngIf='caracteristicaOK' novalidate>
     <ion-list>
       <ion-item>
         <ion-input type="text" formControlName="logo" hidden ></ion-input>
@@ -33,7 +33,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Endereço:</ion-label>
-        <ion-input type="password" formControlName="mapa" ></ion-input>
+        <ion-input type="text" formControlName="mapa" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>login:</ion-label>

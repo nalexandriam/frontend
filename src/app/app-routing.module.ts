@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormCadastroComponent} from './cadastro/form-cadastro/form-cadastro.component';
+import { EmpresaDadosComponent } from './empresa/empresa-dados/empresa-dados.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,17 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'cadastro',
     component: FormCadastroComponent
+  },
+  {
+    path: 'empresa',
+    component: EmpresaDadosComponent
   }
 ];
 
