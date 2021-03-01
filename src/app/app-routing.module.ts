@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { FormCadastroComponent} from './cadastro/form-cadastro/form-cadastro.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'cadastro',
+    component: FormCadastroComponent
+  }
 ];
 
 @NgModule({
