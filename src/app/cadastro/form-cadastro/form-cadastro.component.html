@@ -15,7 +15,7 @@
         <ion-input type="text" formControlName="descricao" ></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button  block [disabled]="FormCaracteristica.invalid" (click)="cadastrarCaracteristica(FormCaracteristica)">Submit</ion-button>
+    <ion-button  block [disabled]="FormCaracteristica.invalid" (click)="cadastrarCaracteristica(FormCaracteristica)">Continuar</ion-button>
   </form>
 
   <form [formGroup]="FormEmpresa" *ngIf='caracteristicaOK' novalidate>
